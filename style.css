@@ -1,0 +1,149 @@
+* {
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  -ms-touch-action: none;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  touch-action: none;
+  -ms-touch-action: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-scale-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 100%;
+}
+
+.app-view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: 0 0;
+}
+
+#canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#guide-canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-origin: 0 0;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.navigation-wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transform-origin: 0 0;
+  z-index: 10000;
+}
+
+.logo,
+.about {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.logo {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  display: none;
+  align-items: center;
+  opacity: 0;
+  z-index: 10000;
+  color: white;
+  animation: 0.8s fadeIn cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  font-size: 0.8rem;
+}
+
+.logo-wrapper {
+  width: 3.5em;
+  height: 3.5em;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.logo-wrapper > img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.logo-text {
+  font-weight: 500;
+  font-size: 1.1em;
+  margin-left: 0.8em;
+  letter-spacing: 0.5px;
+  font-family: Raleway, sans-serif;
+}
+
+.about {
+  display: none;
+  text-align: center;
+  font-size: 0.7rem;
+  font-family: Raleway, sans-serif;
+  font-weight: 300;
+  z-index: 10000;
+  color: #ffffffcc;
+  animation: 0.8s fadeIn cubic-bezier(0.23, 1, 0.32, 1) forwards;
+
+  margin-bottom: 1.2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .logo {
+    font-size: 1rem;
+  }
+
+  .about {
+    font-size: 0.8rem;
+    margin-bottom: 1.6rem;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
