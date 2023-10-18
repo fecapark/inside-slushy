@@ -210,10 +210,10 @@ class BallManager {
 
     const elasticCollision = (c1, c2) => {
       const n = c2.pos.sub(c1.pos).div(c2.pos.dist(c1.pos));
-      const p = c1.dir.dot(n) - c2.dir.dot(n);
+      const p = (2 * (c1.dir.dot(n) - c2.dir.dot(n))) / (c1.radius + c2.radius);
 
-      c1.dir = c1.dir.sub(n.mul(p)).normalize();
-      c2.dir = c2.dir.add(n.mul(p)).normalize();
+      c1.dir = c1.dir.sub(n.mul(c1.radius).mul(p)).normalize();
+      c2.dir = c2.dir.add(n.mul(c2.radius).mul(p)).normalize();
     };
 
     for (let i = 0; i < this.balls.length - 1; i++) {

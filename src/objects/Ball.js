@@ -19,8 +19,8 @@ class Ball {
 
     // Parameters
     this.radiusSpeed = 0;
-    this.frictionValue = 0.98;
-    this.maxSpeed = 20;
+    this.frictionValue = 0.985;
+    this.maxSpeed = 24;
     this.minSpeed = 7;
     this.speed = this.maxSpeed;
     this.opacity = 0;
