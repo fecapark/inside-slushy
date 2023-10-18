@@ -37,7 +37,7 @@ class SpinnerGuide extends Guide {
 
     const spinner = this.app.getModules().spinner;
     const xRatioFromLeft = 1 / 3;
-    const radiusRatio = 0.8;
+    const radiusRatio = 0.9;
 
     this.spinnerGuide.pos.x =
       spinner.pos.x * xRatioFromLeft + spinner.topLeft.x * (1 - xRatioFromLeft);

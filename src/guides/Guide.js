@@ -104,9 +104,16 @@ class Guide {
   }
 
   resize(stageWidth, stageHeight) {
+    const { scaleRatio } = this.app;
+
     this.stageWidth = stageWidth;
     this.stageHeight = stageHeight;
-    this.fontSize = 14;
+
+    if (scaleRatio < 1) {
+      this.fontSize = 14 * (0.9 / scaleRatio);
+    } else {
+      this.fontSize = 14;
+    }
   }
 
   resizeFont() {
