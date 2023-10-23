@@ -21,10 +21,11 @@ Interactive project, inspired by slushy machine.
 
 No third party physics engine.
 
-Implements: 
+Implements:
+
 - Acceleration (Movements).
 - Elastic collision between circles.
-    - Calculated by replacing the radius by mass.
+  - Calculated by replacing the radius by mass.
 - Solved multiple circles collision problem ([Like this](https://gamedev.stackexchange.com/questions/104042/2d-multiple-circle-collision-response))
   - By moving it back to the way it came before the collision. ([Code](https://github.com/fecapark/inside-slushy/blob/f94fd9d5e9d52c3be5bb57d01a375eab572e0233/src/managers/BallManager.js#L194C11-L194C28))
 - Normal force between rotated spinner and moving balls.
@@ -39,4 +40,7 @@ Using HTML5 Canvas masking.
 
 - Apply `Context2d.globalCompositeOperation = "destination-out";`, you can get same effect.
 - To get more information, refer to [my lab project](https://github.com/fecapark/masking-animation)'s code.
-  
+
+### Compatibility
+
+- Compatibility for all devices and browsers has different fps.
