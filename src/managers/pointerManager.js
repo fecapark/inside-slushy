@@ -47,8 +47,6 @@ class PointerManager {
   }
 
   onPointerMove(e) {
-    console.log("wow");
-
     const deltaTime = (new Date() - this.time) / 1000;
     this.time = new Date();
 

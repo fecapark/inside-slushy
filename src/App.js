@@ -16,6 +16,7 @@ class App {
     this.$canvas = $target;
 
     this.ctx = this.$canvas.getContext("2d");
+    this.prevFrameTime = performance.now();
 
     // States
     this.startSpinner = false;
@@ -102,14 +103,25 @@ class App {
     const animateSpinner = () => {
       if (!this.startSpinner) return;
 
-      this.spinner.update(this.stageWidth);
+      if (canUpdate) this.spinner.update(this.stageWidth);
       this.spinner.draw();
     };
 
     const animateBalls = () => {
-      this.ballManager.update();
+      if (canUpdate) this.ballManager.update();
       this.ballManager.draw();
     };
+
+    requestAnimationFrame(this.animate.bind(this));
+
+    // Throttle FPS
+    let canUpdate = false;
+    const interval = 1000 / 65;
+
+    if (performance.now() - this.prevFrameTime > interval) {
+      canUpdate = true;
+      this.prevFrameTime = performance.now();
+    }
 
     this.ctx.clearRect(0, 0, this.$canvas.width, this.$canvas.height);
 
@@ -122,7 +134,7 @@ class App {
     }
 
     if (!this.guideManager.isAllGuideEnd()) {
-      this.guideManager.update();
+      if (canUpdate) this.guideManager.update();
       this.guideManager.draw();
     } else {
       document.querySelector(".about").style.display = "block";
@@ -138,8 +150,6 @@ class App {
 
     // About balls
     animateBalls();
-
-    requestAnimationFrame(this.animate.bind(this));
   }
 
   getScaleRatio(resizeMinWidth, resizeMinHeight) {
